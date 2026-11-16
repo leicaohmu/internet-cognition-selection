@@ -56,12 +56,14 @@ Python 3.11 or later with pandas, NumPy, SciPy, scikit-learn and matplotlib. Fig
 
 ## Running
 
+Analysis and figure scripts read and write intermediate files (panels, trials, `results_*.csv`) in the working directory, so run them from a single analysis folder with the three code folders on the Python path. The main steps are:
+
 ```
-python 01_data_preparation/01_hrs_panel.py   # and the other panel scripts
-python 01_data_preparation/build_trials.py
-USE_LAG=1 USE_EXTRA=1 python 02_analysis/run_main.py hgb 0.025
-python 02_analysis/repool.py
-python 03_figures/nh3fig.py fig2 fig3 fig4 fig5 fig6 fig7n fig8 ed1 ed2 ed3 ed4
+python 01_hrs_panel.py            # and the other panel scripts
+python build_trials.py
+USE_LAG=1 USE_EXTRA=1 python run_main.py hgb 0.025
+python repool.py
+python nh3fig.py fig2 fig3 fig4 fig5 fig6 fig7n fig8 ed1 ed2 ed3 ed4
 ```
 
-Random seeds are fixed, so the results in the paper are reproduced exactly.
+Random seeds are fixed, so reruns give the same estimates.
